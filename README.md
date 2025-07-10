@@ -24,16 +24,16 @@ This repository provides the official implementation of our paper:
 
 ## 🏗️ Architecture Overview
 
-- **Backbone**: Shallow ConvNeXt-V2
+- **Backbone**: ConvNeXt-V2-large stage-1
 - **TDCM Module**: Injects template as depthwise convolution kernels
 - **Decoder**: Predicts center heatmap and geometric parameters
 - **Refine Module**: Locally optimizes angle-scale estimates
 
 ## 🧪 Benchmark
 
-| Setting | Accuracy (mIoU) | Speed Gain vs Halcon |
+| Setting | Precision (mIoU) | Speed |
 |--------|------------------|-----------------------|
-| S2 (0.5–2 scale + rotation) | 0.916 | 55× faster |
+| S2 (0.5–2 scale + rotation) | 0.916 | 119ms |
 
 ## 📄 Citation
 
