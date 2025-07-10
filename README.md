@@ -30,13 +30,15 @@ This repository provides the official implementation of our paper:
 - **Refine Module**: Locally optimizes angle-scale estimates
 
 ## 🧪 Benchmark
+🚀 Matching Performance
+All results are based on a standard template size of **36×36**, unless otherwise specified.
 
-| Setting   | Description                          | Precision (mIoU ↑) | Inference Time ↓ | Success Rate ↑ |
-| --------- | ------------------------------------ | ------------------ | ---------------- | -------------- |
-| **S1**    | Rotation only                        | **0.965**          | **101 ms**       | **100%**       |
-| **S1.5**  | Rotation + mild scaling (0.8–1.5×)   | **0.936**          | **115 ms**       | **98%**        |
-| **S2**    | Rotation + moderate scaling (0.5–2×) | **0.916**          | **119 ms**       | **100%**       |
-| **S2.5**  | Rotation + large scaling (0.4–2.5×)  | **0.902**          | **123 ms**       | **100%**       |
+| Setting   | Description                          | Precision (mIoU ↑) | Inference Time ↓ |
+| --------- | ------------------------------------ | ------------------ | ---------------- |
+| **S1**    | Rotation only                        | **0.965**          | **101 ms**       |
+| **S1.5**  | Rotation + mild scaling (0.8–1.5×)   | **0.936**          | **115 ms**       |
+| **S2**    | Rotation + moderate scaling (0.5–2×) | **0.916**          | **119 ms**       |
+| **S2.5**  | Rotation + large scaling (0.4–2.5×)  | **0.902**          | **123 ms**       |
 
 
 ## 📄 Citation
