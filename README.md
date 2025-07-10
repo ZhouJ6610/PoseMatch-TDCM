@@ -1,0 +1,2 @@
+# PoseMatch-TDCM-A-Lightweight-Deep-Template-Matching-and-Pose-Estimation-Framework
+A lightweight, end-to-end deep learning framework for efficient template matching and in-plane pose estimation, featuring a novel Template-Aware Dynamic Convolution Module (TDCM) and self-supervised geometric alignment. Achieves high accuracy under wide-range transformations and supports one-shot matching of unseen templates.
