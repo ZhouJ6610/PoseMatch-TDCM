@@ -3,7 +3,7 @@
 This repository provides the official implementation of our paper:
 
 **"An Efficient Deep Template Matching and In-Plane Pose Estimation Method via Template-Aware Dynamic Convolution"**  
-*Published in [Your Target Journal/Conference]*
+*Published in ...*
 
 ## 🔍 Highlights
 
@@ -12,7 +12,7 @@ This repository provides the official implementation of our paper:
 - **Template-Aware Dynamic Convolution (TDCM)** for efficient structure-aware fusion
 - **Self-supervised training** using affine transformations + pseudo labels
 - **Supports multi-object and small template matching**
-- **Up to 55× faster** than traditional industrial software (Halcon SHM)
+- Achieves up to **55× speed-up** over Halcon SHM, with mIoU improved from **0.898 → 0.916** under 0.5–2× scaling and ±180° rotation.
 
 ## 📦 Features
 
