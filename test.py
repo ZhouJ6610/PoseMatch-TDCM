@@ -29,9 +29,9 @@ transform_img = transforms.Compose([
         ])
 
 with torch.no_grad():
-    image = cv2.imread('pic/image.jpg')
+    image = cv2.imread('res/image.jpg')
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    template = cv2.imread('pic/template.jpg')
+    template = cv2.imread('res/template.jpg')
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     template = cv2.resize(template, (36, 36))
     
@@ -66,8 +66,7 @@ with torch.no_grad():
     search_img_gray = cv2.cvtColor(search_img, cv2.COLOR_RGB2GRAY)
     template_img_gray = cv2.cvtColor(template_img, cv2.COLOR_RGB2GRAY)
     
-    # 
-    # 进行角度细化
+    # 细化
     pred_r, _ = refine_angle_bisection(
         search_img_gray, template_img_gray, pred_x, pred_y, pred_sx, pred_sy, pred_r,
         initial_range=20,
@@ -95,7 +94,7 @@ with torch.no_grad():
 
     ax.axis('off')
     plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
-    plt.savefig('pic/res.jpg', bbox_inches='tight', pad_inches=0)
+    plt.savefig('res/res.jpg', bbox_inches='tight', pad_inches=0)
     
     print('\t\tcenter\t\t\tscale_x\t\t\tscale_y\t\t\tangle\t\t\tIOU')
 
