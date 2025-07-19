@@ -41,6 +41,15 @@ All results are based on a standard template size of **36×36**, unless otherwis
 | **S2.5**  | Rotation + large scaling (0.4–2.5×)  | **0.902**          | **123 ms**       |
 
 
+### 📦 Model Download
+Choose your preferred source:  
+
+| Host         | 🔗 Link                                                                  | 🔑 Access Code       | 📁 Recommended Path |
+|--------------|---------------------------------------------------------------------------|----------------------|---------------------|
+| **Google Drive** | [Download](https://drive.google.com/drive/folders/14hvIaluqEBXuT3vS9cBwEydYo3d4JO6y?usp=drive_link) | - | `./models/` |
+| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/1CHkGL0jkFk68T8mf3Sr34A?pwd=tdcm) | `tdcm` | `./models/` |
+
+
 ## 📄 Citation
 
 If you find this work useful, please cite:
