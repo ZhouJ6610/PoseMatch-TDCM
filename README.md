@@ -46,8 +46,8 @@ Choose your preferred source:
 
 | Host         | 🔗 Link                                                                  | 🔑 Access Code       | 📁 Recommended Path |
 |--------------|---------------------------------------------------------------------------|----------------------|---------------------|
-| **Google Drive** | [Download](https://drive.google.com/drive/folders/14hvIaluqEBXuT3vS9cBwEydYo3d4JO6y?usp=drive_link) | - | `./models/` |
-| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/1CHkGL0jkFk68T8mf3Sr34A?pwd=tdcm) | `tdcm` | `./models/` |
+| **Google Drive** | [Download](https://drive.google.com/drive/folders/14hvIaluqEBXuT3vS9cBwEydYo3d4JO6y?usp=drive_link) | - | `./dict/` |
+| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/1CHkGL0jkFk68T8mf3Sr34A?pwd=tdcm) | `tdcm` | `./dict/` |
 
 
 ## 📄 Citation
