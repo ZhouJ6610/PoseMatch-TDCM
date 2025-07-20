@@ -28,10 +28,12 @@ transform_img = transforms.Compose([
             )            
         ])
 
+query_image_path = './res/image.jpg'
+template_image_path = './res/template.jpg'
 with torch.no_grad():
-    image = cv2.imread('res/image.jpg')
+    image = cv2.imread(query_image_path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    template = cv2.imread('res/template.jpg')
+    template = cv2.imread(template_image_path)
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     template = cv2.resize(template, (36, 36))
     
