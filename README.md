@@ -33,13 +33,13 @@ All results are based on a standard template size of **36×36**, unless otherwis
 
 ## 🖥️ Usage
 
-`test.py` contains example usage of the PoseMatch‑TDCM matcher.  
+`test.py` contains example usage of the PoseMatch-TDCM matcher.  
 To try with your own images, edit the file and set:
 
 ```python
 query_image_path = './res/image.jpg'
-template_image_path = './res/template.jpg'   
-'''
+template_image_path = './res/template.jpg'
+
    
 
 ## 📦 Checkpoints
