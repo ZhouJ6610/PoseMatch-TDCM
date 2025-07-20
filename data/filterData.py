@@ -5,7 +5,7 @@ import math
 def filter_data(coco_annotations_path, output_csv_path, tShape=(36, 36), scale_range=(0.5, 2)):
     """
     筛选 COCO 数据集中满足原始 w 和 h 缩放条件的目标（直接基于原始尺寸判断）
-    
+      
     参数:
         coco_annotations_path: COCO 数据集的注释文件路径（如 instances_train2017.json）
         output_csv_path: 输出 CSV 文件的路径
