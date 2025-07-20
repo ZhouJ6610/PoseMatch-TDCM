@@ -8,12 +8,10 @@ This repository provides the official implementation of our paper:
 ## 🔍 Highlights
 
 • End-to-end estimation of 2D geometric pose for planar template matching.
-• TDCM enables strong generalization to unseen targets with efficient
-matching.
+• TDCM enables strong generalization to unseen targets with efficient matching.
 • Consistently high precision and speed under complex geometric transformations.
 • A refinement module improves angle-scale estimation via local geometric fitting.
-• Structure-aware pseudo labels enable self-supervised training without
-annotations.
+• Structure-aware pseudo labels enable self-supervised training without annotations.
 
 ## 🧪 Benchmark
 🚀 Matching Performance
