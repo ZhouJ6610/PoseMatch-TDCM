@@ -85,7 +85,7 @@ with open(result_file, 'w', encoding='utf-8') as rf:
     false_positive_total = 0
 
     sample_index = 0
-    max_samples = 200
+    max_samples = 500
     
     # 所有样本统计值
     sum_IoU = 0.0
