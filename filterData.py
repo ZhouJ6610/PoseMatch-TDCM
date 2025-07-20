@@ -61,7 +61,6 @@ def filter_data(coco_annotations_path, output_csv_path, tShape=(36, 36), scale_r
 
 
 
-# 使用示例
 if __name__ == "__main__":
     # COCO 数据集注释文件路径
     annotations_path = "/path-to/MS-CoCo/annotations/instances_train2017.json"
