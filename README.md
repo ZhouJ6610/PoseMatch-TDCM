@@ -4,7 +4,11 @@ This repository provides the official implementation of our paper:
 
 **"An Efficient Deep Template Matching and In-Plane Pose Estimation Method via Template-Aware Dynamic Convolution"**  
 *Published in ...*
+
+## 🔧 Framework Architecture
+
 ![Framework](framework.png)
+
 
 
 ## 🔍 Highlights
