@@ -30,24 +30,3 @@ All results are based on a standard template size of **36×36**, unless otherwis
 | **S2**    | Rotation + moderate scaling (0.5–2×) |     **0.916**      |     **119 ms**         |     **68.7 ms**        |
 | **S2.5**  | Rotation + large scaling (0.4–2.5×)  |     **0.902**      |     **123 ms**         |     **72.1 ms**        |
 
-
-### 📦 Model Download
-Choose your preferred source:  
-
-| Host         | 🔗 Link                                                                  | 🔑 Access Code       | 📁 Recommended Path |
-|--------------|---------------------------------------------------------------------------|----------------------|---------------------|
-| **Google Drive** | [Download](https://drive.google.com/drive/folders/14hvIaluqEBXuT3vS9cBwEydYo3d4JO6y?usp=drive_link) | - | `./dict/` |
-| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/1CHkGL0jkFk68T8mf3Sr34A?pwd=tdcm) | `tdcm` | `./dict/` |
-
-
-## 📄 Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@unpublished{zhou2025tdcm,
-  title={An Efficient Deep Template Matching and In-Plane Pose Estimation Method via Template-Aware Dynamic Convolution},
-  author={Zhou, Ji},
-  journal={Preprint},
-  year={2025}
-}
