@@ -56,10 +56,8 @@ def postprocess_output(outputs, threshold, isScale=True):
             'x': CX,
             'y': CY,
             'angle': angle_deg,
-            'scale_x': max(min(scale_x, 1.5), 0.8),
-            # 'scale_x': scale_x,
-            'scale_y': max(min(scale_y, 1.5), 0.8),
-            # 'scale_y': scale_y,
+            'scale_x': scale_x,
+            'scale_y': scale_y,
             'score': score
         })
     return results
@@ -67,7 +65,7 @@ def postprocess_output(outputs, threshold, isScale=True):
 
 th, tw = 36, 36
 img_dir = '/workspace/zhouji/dataSets/MS-CoCo/val2017/'
-csv_file = 'data/S1.5/val.csv'
+csv_file = 'data/S2/val.csv'
 device = torch.device('cpu')
 model = Model(None, device).to(device)
 state_dict = torch.load('dict/model.pth', map_location=device)
