@@ -30,3 +30,12 @@ All results are based on a standard template size of **36×36**, unless otherwis
 | **S2**    | Rotation + moderate scaling (0.5–2×) |     **0.916**      |     **119 ms**         |     **68.7 ms**        |
 | **S2.5**  | Rotation + large scaling (0.4–2.5×)  |     **0.902**      |     **123 ms**         |     **72.1 ms**        |
 
+
+## 🖥️ Usage
+
+`inference.py` contains example usage of the PoseMatch‑TDCM matcher.  
+To try with your own images, edit the file and set:
+
+```python
+query_image_path = './res/image.png'
+template_image_path = './res/template.png'
