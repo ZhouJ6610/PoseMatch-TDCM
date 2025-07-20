@@ -18,7 +18,7 @@ This repository provides the official implementation of our paper:
 All results are based on a standard template size of **36×36**, unless otherwise specified.
 
 | Setting   | Description                          | Precision (mIoU ↑) | Time(CPU E5-2678 v3) ↓ | Time(CPU E5-2680 v4) ↓ |
-| --------- | ------------------------------------ | ------------------ | ----------------       | ----------------       |
+| --------- | ------------------------------------ | :----------------: | :----------------:     | :-----------------:    |
 | **S1**    | Rotation only                        |     **0.965**      |     **101 ms**         |     **58.6 ms**        |
 | **S1.5**  | Rotation + mild scaling (0.8–1.5×)   |     **0.936**      |     **115 ms**         |     **67.2 ms**        |
 | **S2**    | Rotation + moderate scaling (0.5–2×) |     **0.916**      |     **119 ms**         |     **68.7 ms**        |
