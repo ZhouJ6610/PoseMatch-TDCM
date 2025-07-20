@@ -50,5 +50,5 @@ For other settings (e.g., S1, S1.5, S2.5, T12, T28-52, T124), please download th
 | Host              | 🔗 Link                                                                                          | 🔑 Access Code |
 | ----------------- | ------------------------------------------------------------------------------------------------ | -------------- |
 | **Google Drive**  | [Download](https://drive.google.com/drive/folders/14hvIaluqEBXuT3vS9cBwEydYo3d4JO6y?usp=sharing) | –              |
-| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/108eWI0Eo-Q4_gNmO88HouQ?pwd=tdcm 提取码: tdcm)                | `tdcm`         |
+| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/108eWI0Eo-Q4_gNmO88HouQ?pwd=tdcm)                             | `tdcm`         |
 
