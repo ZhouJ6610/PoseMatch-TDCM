@@ -39,3 +39,13 @@ To try with your own images, edit the file and set:
 ```python
 query_image_path = './res/image.jpg'
 template_image_path = './res/template.jpg'
+
+
+
+### 📦 Checkpoints
+Choose your preferred source:  
+
+| Host         | 🔗 Link                                                                  | 🔑 Access Code       | 📁 Recommended Path |
+|--------------|---------------------------------------------------------------------------|----------------------|---------------------|
+| **Google Drive** | [Download](https://drive.google.com/drive/folders/14hvIaluqEBXuT3vS9cBwEydYo3d4JO6y?usp=sharing) | - | `./dict/` |
+| **Baidu Netdisk** | [Download](https://pan.baidu.com/s/108eWI0Eo-Q4_gNmO88HouQ?pwd=tdcm) |   tdcm   | `./dict/` |
