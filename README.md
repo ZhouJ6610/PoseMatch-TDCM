@@ -39,7 +39,7 @@ To try with your own images, edit the file and set:
 ```python
 query_image_path = './res/image.jpg'
 template_image_path = './res/template.jpg'
-
+```
    
 
 ## 📦 Checkpoints
