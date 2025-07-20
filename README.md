@@ -37,5 +37,5 @@ All results are based on a standard template size of **36×36**, unless otherwis
 To try with your own images, edit the file and set:
 
 ```python
-query_image_path = './res/image.png'
-template_image_path = './res/template.png'
+query_image_path = './res/image.jpg'
+template_image_path = './res/template.jpg'
