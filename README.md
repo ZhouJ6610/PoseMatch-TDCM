@@ -7,27 +7,13 @@ This repository provides the official implementation of our paper:
 
 ## 🔍 Highlights
 
-- **One-shot template matching** without requiring per-template retraining
-- **Direct pose estimation**: center, rotation angle, and scale
-- **Template-Aware Dynamic Convolution (TDCM)** for efficient structure-aware fusion
-- **Self-supervised training** using affine transformations + pseudo labels
-- **Supports multi-object and small template matching**
-- Achieves up to **55× speed-up** over Halcon SHM, with mIoU improved from **0.898 → 0.916** under 0.5–2× scaling and ±180° rotation.
-
-## 📦 Features
-
-- End-to-end network for template matching and pose regression
-- Lightweight architecture using ConvNeXt-V2 Stage-1, depthwise separable convolutions, and pixel shuffle
-- Optional geometric refinement module to improve rotation/scale accuracy
-- No annotation needed – fully self-supervised training pipeline provided
-- Inference-ready on real-world and synthetic datasets
-
-## 🏗️ Architecture Overview
-
-- **Backbone**: ConvNeXt-V2-large stage-1
-- **TDCM Module**: Injects template as depthwise convolution kernels
-- **Decoder**: Predicts center heatmap and geometric parameters
-- **Refine Module**: Locally optimizes angle-scale estimates
+• End-to-end estimation of 2D geometric pose for planar template matching.
+• TDCM enables strong generalization to unseen targets with efficient
+matching.
+• Consistently high precision and speed under complex geometric transformations.
+• A refinement module improves angle-scale estimation via local geometric fitting.
+• Structure-aware pseudo labels enable self-supervised training without
+annotations.
 
 ## 🧪 Benchmark
 🚀 Matching Performance
