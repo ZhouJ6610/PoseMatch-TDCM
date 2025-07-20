@@ -225,7 +225,7 @@ def get_expand_range(rect, edge, shape, angle, size: int=224) -> tuple:
     if W < size or H < size: return (-1, -1)
     # 边S与图像边的交点距离公式为: dist = D / (sin_angle * cos_angle)
     # 其中D是边S与图像边界的垂直距离，D与大（向中间靠拢）dis也会逐渐增大
-    # 我们需要保证 dist >= size
+    # 需要保证 dist >= size
     # 所以 D = size * sin_angle * cos_angle
     D = size * sin * cos
     if H < 2*D + size or W < 2*D + size: return(-1, -1)
@@ -277,90 +277,4 @@ def get_expand_range(rect, edge, shape, angle, size: int=224) -> tuple:
         # 保证下边
         min_d = max(y + size + D - H, 0)
         
-        return (min_d, max_d)
-    
-
-def visualize_results(original_img, original_bbox, rotated_img, rotated_bbox, angle: float=0, k: int=0) -> None:
-    """
-    可视化原始图像、旋转后图像和边界框
-    
-    Args:
-        original_img: 原始图像
-        original_bbox: 原始边界框 [x, y, w, h]
-        rotated_img: 旋转后裁剪的图像
-        rotated_bbox: 旋转后的边界框顶点坐标
-    """
-    # 绘制原始图像和边界框
-    fig, axs = plt.subplots(1, 2, figsize=(12, 6))
-    
-    # 原始图像
-    axs[0].imshow(cv2.cvtColor(original_img, cv2.COLOR_BGR2RGB))
-    x, y, w, h = original_bbox
-    rect = plt.Rectangle((x, y), w, h, linewidth=2, edgecolor='r', facecolor='none')
-    axs[0].add_patch(rect)
-    axs[0].set_title('Original')
-    
-    # 旋转后的图像
-    axs[1].imshow(cv2.cvtColor(rotated_img, cv2.COLOR_BGR2RGB))
-    polygon = plt.Polygon(rotated_bbox, linewidth=2, edgecolor='r', facecolor='none')
-    axs[1].add_patch(polygon)
-    axs[1].set_title(f'Rotated {angle:6.2f}')
-    
-    plt.tight_layout()
-    plt.savefig(f'../pic/newData/{k}.png')
-    plt.close()
-
-
-# 使用示例
-if __name__ == "__main__":
-    dataPath = "/workspace/zhouji/dataSets/MS-CoCo/"
-    
-    t = 'val'
-    fileName = "../data/S1/" + t + ".csv"
-    outputCsvPath = "../data/" + t + "_.csv"
-    
-    samples = []
-    with open(fileName, 'r') as lines:
-        for line in lines:
-            name, x, y, w, h = line.strip().split(',')
-            samples.append([
-                name,
-                (int(x),int(y),int(w),int(h))
-                # (round(float(x)),round(float(y)),round(float(w)),round(float(h)))
-            ])
-    
-    
-    import csv
-    with open(outputCsvPath, 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
-    
-        count = 0
-        for i, (name, bbox) in enumerate(samples):
-            # 加载测试图像
-            image_path = dataPath + t + '2017/' + name
-            image = cv2.imread(image_path)
-            
-            # 生成旋转后的图像和边界框
-            rotated_img, rotated_bbox, angle = rotate_crop(image, bbox)
-            if rotated_img is not None:
-                h, w, c = rotated_img.shape
-                    
-                count += 1
-                if count % 200 == 0: print(i, " ----- ", count)
-                
-                # name, rotated_bbox_corner, angle, center_x, center_y, w, h
-                bbox_corner = [[round(x, 2), round(y, 2)] for x, y in rotated_bbox]
-                (Ax, Ay), (Bx, By), (Cx, Cy), (Dx, Dy) = bbox_corner
-
-                # name, rotated_bbox_corner, angle, center_x, center_y, w, h
-                csvwriter.writerow([name, 
-                                    Ax, Ay, Bx, By, Cx, Cy, Dx, Dy, 
-                                    f"{angle:.2f}", 
-                                    bbox[0], bbox[1], bbox[2], bbox[3]
-                                    ])
-                
-                visualize_results(image, bbox, rotated_img, rotated_bbox, angle, count)
-                # cv2.imwrite('../dataSets/MS-CoCo-rotated/' + t + f'2017/{name}', rotated_img)
-                    
-            if count == 8: exit(0)
-            
+        return (min_d, max_d)  
