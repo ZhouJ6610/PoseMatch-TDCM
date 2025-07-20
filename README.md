@@ -33,7 +33,7 @@ All results are based on a standard template size of **36×36**, unless otherwis
 
 ## 🖥️ Usage
 
-`inference.py` contains example usage of the PoseMatch‑TDCM matcher.  
+`test.py` contains example usage of the PoseMatch‑TDCM matcher.  
 To try with your own images, edit the file and set:
 
 ```python
