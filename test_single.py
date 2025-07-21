@@ -132,6 +132,6 @@ with open(result_file, 'w', encoding='utf-8') as rf:
         rf.write(f'平均缩放X误差: {scaleXErr / success_count:.3f}\n')
         rf.write(f'平均缩放Y误差: {scaleYErr / success_count:.3f}\n')
         rf.write(f'平均IOU: {mIoU / success_count:.3f}\n')
-        rf.write(f'平均时间: {all_time / success_count * min(len(dataset), max_samples):.2f} ms\n')
+        rf.write(f'平均时间: {all_time / 1000 * min(len(dataset), max_samples):.2f} ms\n')
     else:
         rf.write('没有成功匹配的样本，无法计算平均误差。\n')
