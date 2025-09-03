@@ -1,8 +1,30 @@
 import torch
 import torch.nn.functional as F
 
+def soft_focal_loss(pred, gt_score, alpha=2.0, beta=4.0):
+    pred = torch.clamp(pred, 1e-6, 1.0 - 1e-6) # 限制预测值，防止出现梯度消失/爆炸
+    
+    pos_inds = gt_score.ge(0.5).float() # 大于等于0.5 设为正样本 设置为一个二值化掩码
+    neg_inds  = gt_score.lt(0.5).float() # 小于0.5设为负样本
+    
+    neg_weights = torch.pow(1 - gt_score, beta)# 背景权重
+    loss = 0
+    # 正样本损失
+    pos_loss = torch.log(pred) * torch.pow(gt_score - pred, alpha) * pos_inds
+    # 负样本损失
+    neg_loss = torch.log(1 - pred) * torch.pow(pred, alpha) * neg_weights * neg_inds
+    
+    num_pos = pos_inds.float().sum() # 正样本个数
+    pos_loss = pos_loss.sum()
+    neg_loss = neg_loss.sum()
+    
+    if num_pos == 0:
+        loss = loss - neg_loss
+    else:
+        loss = loss - (pos_loss + neg_loss) / num_pos
+    return loss
 
-def soft_focal_loss(pred, gt):
+def center_loss(pred, gt):
     # 限制预测值，防止出现梯度消失/爆炸
     pred = torch.clamp(pred, 1e-6, 1.0 - 1e-6) 
     
