@@ -79,7 +79,7 @@ with torch.no_grad():
     
     # 计算IOU
     pred_param = np.array([pred_x, pred_y, pred_sx, pred_sy, pred_r], dtype=np.float32)
-    true_param = np.array([47.47,67.61,0.89,1.31,-78.53], dtype=np.float32)
+    true_param = np.array([45,94,0.89,0.90,-50], dtype=np.float32)
     IoU = getIOU(true_param, pred_param, 36, 36)
     
     fig, ax = plt.subplots(figsize=(2.24, 2.24), dpi=300)
