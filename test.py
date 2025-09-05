@@ -23,10 +23,8 @@ transform_img = transforms.Compose([
         ])
 
 
-query_image_path = './res/imageGray.png'
-# query_image_path = './res/image.jpg'
-template_image_path = './res/templateGray.png'
-# template_image_path = './res/template.jpg'
+query_image_path = './res/image.png'
+template_image_path = './res/template.png'
 with torch.no_grad():
     image = cv2.imread(query_image_path)
     template = cv2.imread(template_image_path)
@@ -57,9 +55,6 @@ with torch.no_grad():
     
     search_img = ((image.squeeze(0) * 0.5 + 0.5)).permute(1, 2, 0).cpu().numpy()
     template_img = ((template.squeeze(0)*0.5+0.5)).permute(1, 2, 0).cpu().numpy()
-    # 转灰度图
-    search_img_gray = cv2.cvtColor(search_img, cv2.COLOR_RGB2GRAY)
-    template_img_gray = cv2.cvtColor(template_img, cv2.COLOR_RGB2GRAY)
     
     # 细化
     pred_r, _ = refine_angle_bisection(
