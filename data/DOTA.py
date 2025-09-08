@@ -5,6 +5,10 @@ import glob
 import math
 from PIL import Image
 
+'''
+构建DOTA模板匹配测试集
+'''
+
 def draw_polygon(image, points, color, thickness=2):
     """在图像上绘制多边形"""
     int_points = np.array([[int(p[0]), int(p[1])] for p in points], dtype=np.int32)
