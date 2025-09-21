@@ -21,17 +21,22 @@ transform_img = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],  std=[0.229, 0.224, 0.225]),
         ])
+        
+def denormalize(tensor, mean=[0.485, 0.456, 0.406], std = [0.229, 0.224, 0.225]):
+    mean = torch.tensor(mean).view(3, 1, 1)
+    std = torch.tensor(std).view(3, 1, 1)
+    return tensor * std + mean
 
 
-query_image_path = './res/image.jpg'
-template_image_path = './res/template.jpg'
+query_image_path = './res/image.png'
+template_image_path = './res/template.png'
 with torch.no_grad():
     image = cv2.imread(query_image_path)
     template = cv2.imread(template_image_path)
     template = cv2.resize(template, (36, 36))
     
-    image = transform_img(Image.fromarray(img_gray)).to(device).unsqueeze(0)
-    template = transform_img(Image.fromarray(tmp_gray)).to(device).unsqueeze(0)
+    image = transform_img(Image.fromarray(image)).to(device).unsqueeze(0)
+    template = transform_img(Image.fromarray(template)).to(device).unsqueeze(0)
         
     pred_score, pred_sign, pred_cos, pred_scale_x, pred_scale_y = model(image, template)
     
@@ -50,32 +55,32 @@ with torch.no_grad():
     pred_sx = pred_scale_x[0, 0, pre_Y, pre_X].item()
     pred_sy = pred_scale_y[0, 0, pre_Y, pre_X].item()
     
-    search_img = ((image.squeeze(0) * 0.5 + 0.5)).permute(1, 2, 0).cpu().numpy()
-    template_img = ((template.squeeze(0)*0.5+0.5)).permute(1, 2, 0).cpu().numpy()
+    search_img = (denormalize(image.squeeze(0))).permute(1, 2, 0).cpu().numpy()
+    template_img = (denormalize(template.squeeze(0))).permute(1, 2, 0).cpu().numpy()
     
     # 细化
     pred_r, _ = refine_angle_bisection(
-        search_img_gray, template_img_gray, pred_x, pred_y, pred_sx, pred_sy, pred_r,
+        search_img, template_img, pred_x, pred_y, pred_sx, pred_sy, pred_r,
         initial_range=20,
     )
     pred_sx, _ = refine_scale_x(
-        search_img_gray, template_img_gray, pred_x, pred_y, pred_sx, pred_sy, pred_r
+        search_img, template_img, pred_x, pred_y, pred_sx, pred_sy, pred_r
     )
     pred_sy, _ = refine_scale_y(
-        search_img_gray, template_img_gray, pred_x, pred_y, pred_sx, pred_sy, pred_r
+        search_img, template_img, pred_x, pred_y, pred_sx, pred_sy, pred_r
     )
     pred_r, _ = refine_angle(
-        search_img_gray, template_img_gray, pred_x, pred_y, pred_sx, pred_sy, pred_r,
+        search_img, template_img, pred_x, pred_y, pred_sx, pred_sy, pred_r,
         initial_range=5
     )
     
     # 计算IOU
     pred_param = np.array([pred_x, pred_y, pred_sx, pred_sy, pred_r], dtype=np.float32)
-    true_param = np.array([45,94,0.89,0.90,-50], dtype=np.float32)
+    true_param = np.array([45,95,0.89,0.90,-50], dtype=np.float32)
     IoU = getIOU(true_param, pred_param, 36, 36)
     
     fig, ax = plt.subplots(figsize=(2.24, 2.24), dpi=300)
-    ax.imshow(search_img)  
+    ax.imshow(search_img[..., ::-1]) # BGR->RGB 
     draw_rotated_bbox(ax, pred_param, 'green', 36, 36)
     # draw_rotated_bbox(ax, true_param, 'red', 36, 36)
 
