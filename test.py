@@ -16,22 +16,19 @@ from utils import getIOU
 device = torch.device('cpu')
 
 model = Model('dict/model.pth').to(device).eval()
+
 transform_img = transforms.Compose([
             transforms.ToTensor(),
-            transforms.Lambda(lambda x: x.expand(3, -1, -1)),
-            transforms.Normalize(mean=[0.5]*3, std=[0.5]*3)            
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],  std=[0.229, 0.224, 0.225]),
         ])
 
 
-query_image_path = './res/image.png'
-template_image_path = './res/template.png'
+query_image_path = './res/image.jpg'
+template_image_path = './res/template.jpg'
 with torch.no_grad():
     image = cv2.imread(query_image_path)
     template = cv2.imread(template_image_path)
     template = cv2.resize(template, (36, 36))
-    
-    img_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-    tmp_gray = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
     
     image = transform_img(Image.fromarray(img_gray)).to(device).unsqueeze(0)
     template = transform_img(Image.fromarray(tmp_gray)).to(device).unsqueeze(0)
